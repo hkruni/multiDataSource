@@ -14,13 +14,13 @@
 	http://www.springframework.org/schema/aop 
 	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	
-	<bean id="writeDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	<bean id="dataSource1" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName">
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="url">
-			<value>${jdbcUrlWrite}</value>
+			<value>${jdbcUrl1}</value>
 		</property>
 		<property name="username">
 			<value>${username}</value>
@@ -30,13 +30,13 @@
 		</property>
 	</bean>
 	
-	<bean id="readDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName">
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
 		<property name="url">
-			<value>${jdbcUrlRead}</value>
+			<value>${jdbcUrl2}</value>
 		</property>
 		<property name="username">
 			<value>${username}</value>
@@ -49,10 +49,10 @@
 	<bean id="dataSource" class="com.cmdi.yjs.dataSource.DynamicDataSource">
 		<property name="targetDataSources">
 			<map key-type="java.lang.String">
-				<entry key="read" value-ref="readDataSource" />
+				<entry key="read" value-ref="dataSource1" />
 			</map>
 		</property>
-		<property name="defaultTargetDataSource" ref="writeDataSource" />
+		<property name="defaultTargetDataSource" ref="dataSource2" />
 	</bean>
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

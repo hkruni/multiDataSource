@@ -1,8 +1,7 @@
 package com.cmdi.yjs.dataSource;
 
-
 /**
- * 数据源选择器
+ * 
  * 
  * @author liuyu
  */
@@ -12,31 +11,24 @@ public class DataSourceSwitcher {
 
 	@SuppressWarnings("unchecked")
 	public static void setDataSource(String dataSource) {
-		System.out.println("setDataSource " + dataSource);
 		contextHolder.set(dataSource);
 	}
 
-	public static void setWrite(){
-		System.out.println("setWrite");
+	public static void setWrite() {
 		clearDataSource();
-    }
-	
+	}
+
 	public static void setRead() {
-		System.out.println("setRead");
 		setDataSource("read");
 	}
-	
+
 	public static String getDataSource() {
-		System.out.println("getDataSource");
-		String dataSource =  (String) contextHolder.get();
-		System.out.println(dataSource);
-		
+		String dataSource = (String) contextHolder.get();
+
 		return dataSource;
 	}
 
 	public static void clearDataSource() {
-		System.out.println("clearDataSource");
 		contextHolder.remove();
 	}
 }
-
