@@ -53,7 +53,7 @@ public class UserService {
 
 		userDAO.addUser(user);
 		List<User> list = userDAO.getUser();
-		User u = list.get(2);
+		User u = list.get(10);
 		System.out.println(u.getUsername());
 
 		return user;

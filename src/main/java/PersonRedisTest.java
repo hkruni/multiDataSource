@@ -16,6 +16,6 @@ public class PersonRedisTest {
 				"applicationContext.xml");
 
 		UserService service = (UserService) context.getBean("userService");
-		service.add("haha", "1111111@qq", "haha", 28);
+		service.add("duhu", "1111111@qq", "duhu", 28);
 	}
 }
